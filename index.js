@@ -149,4 +149,4 @@
   //   else console.log(err);
   // });
   export default app;
-  export { server };
+  export { server , io };
