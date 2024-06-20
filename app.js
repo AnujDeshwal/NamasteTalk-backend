@@ -15,6 +15,7 @@ import { socketAuthenticator } from "./middleware/auth.middleware.js";
 import { NEW_MESSAGE, NEW_MESSAGE_ALERT, REFETCH_CHATS } from "./utils/events.js";
 import { getSockets } from "./lib/helper.js";
 import { Message } from "./models/message.model.js";
+import path from "path";
 
 dotenv.config();
 const app = express();
@@ -41,6 +42,13 @@ const PORT = process.env.PORT;
 connectDB(MONGO_URL);
 
 //middleware 
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// For all GET requests, send back index.html
+// so that PathLocationStrategy can be used
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser());
