@@ -144,7 +144,9 @@
   // very important there is a middleware section abover where most of the middleware are declared because these middleware should be executed before execution of the route but errorMiddlware is defined at the end because it should be executed after execution of the route ,because after executin of the route error will come then errorMiddleware should come 
   app.use(errorMiddleware);
   //Listening to the port 
-  server.listen(PORT, (err) => {
-    if (!err) console.log(`Listening to the port no.:${PORT}`);
-    else console.log(err);
-  });
+  // server.listen(PORT, (err) => {
+  //   if (!err) console.log(`Listening to the port no.:${PORT}`);
+  //   else console.log(err);
+  // });
+  export default app;
+  export { server };
