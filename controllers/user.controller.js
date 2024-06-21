@@ -27,7 +27,7 @@ export const newUser = TryCatch(async (req, res) => {
     username,
     password,
     avatar,
-  });
+  })
   sendToken(res, user, 201, "User created");
 });
 

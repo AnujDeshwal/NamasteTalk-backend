@@ -126,13 +126,13 @@
       // remember that here member members is a collection of ids ,toString is being used because id is a object of ObjectId class  so toString change it to string which is a id 
       let memberSockets = []
       if(members[0]._id)
-    { console.log("above")
+    { 
       memberSockets = members.map((member) => userSocketIDs.get(member._id.toString()));}
-    else  {console.log("below")
+    else  {
       memberSockets = members.map((member) => userSocketIDs.get(member.toString()));}
 
 
-      // console.log("emitting from the server:",memberSocket);
+      console.log("emitting on friend removal from the server:",chatId);
 
       io.to(memberSockets).emit(REFETCH_CHATS,chatId); 
     })
